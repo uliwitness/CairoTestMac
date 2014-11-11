@@ -12,6 +12,8 @@
 		553730721A121A0900DCE849 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 553730711A121A0900DCE849 /* Images.xcassets */; };
 		553730751A121A0900DCE849 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 553730731A121A0900DCE849 /* MainMenu.xib */; };
 		553730811A121A0A00DCE849 /* CairoTestMacTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 553730801A121A0A00DCE849 /* CairoTestMacTests.m */; };
+		553730931A121B4500DCE849 /* ULICairoTestMacView.m in Sources */ = {isa = PBXBuildFile; fileRef = 553730921A121B4500DCE849 /* ULICairoTestMacView.m */; };
+		553730951A12209800DCE849 /* libcairo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 553730941A12209800DCE849 /* libcairo.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,6 +37,9 @@
 		5537307A1A121A0900DCE849 /* CairoTestMacTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CairoTestMacTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		5537307F1A121A0A00DCE849 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		553730801A121A0A00DCE849 /* CairoTestMacTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CairoTestMacTests.m; sourceTree = "<group>"; };
+		553730911A121B4500DCE849 /* ULICairoTestMacView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ULICairoTestMacView.h; sourceTree = "<group>"; };
+		553730921A121B4500DCE849 /* ULICairoTestMacView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ULICairoTestMacView.m; sourceTree = "<group>"; };
+		553730941A12209800DCE849 /* libcairo.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libcairo.a; path = ../../../../usr/local/lib/libcairo.a; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -42,6 +47,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				553730951A12209800DCE849 /* libcairo.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -59,6 +65,7 @@
 			isa = PBXGroup;
 			children = (
 				553730691A121A0900DCE849 /* CairoTestMac */,
+				553730901A121AF200DCE849 /* Libraries */,
 				5537307D1A121A0900DCE849 /* CairoTestMacTests */,
 				553730681A121A0900DCE849 /* Products */,
 			);
@@ -78,6 +85,8 @@
 			children = (
 				5537306C1A121A0900DCE849 /* AppDelegate.h */,
 				5537306D1A121A0900DCE849 /* AppDelegate.m */,
+				553730911A121B4500DCE849 /* ULICairoTestMacView.h */,
+				553730921A121B4500DCE849 /* ULICairoTestMacView.m */,
 				553730711A121A0900DCE849 /* Images.xcassets */,
 				553730731A121A0900DCE849 /* MainMenu.xib */,
 				5537306A1A121A0900DCE849 /* Supporting Files */,
@@ -109,6 +118,14 @@
 				5537307F1A121A0A00DCE849 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		553730901A121AF200DCE849 /* Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				553730941A12209800DCE849 /* libcairo.a */,
+			);
+			name = Libraries;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -212,6 +229,7 @@
 			files = (
 				553730701A121A0900DCE849 /* main.m in Sources */,
 				5537306E1A121A0900DCE849 /* AppDelegate.m in Sources */,
+				553730931A121B4500DCE849 /* ULICairoTestMacView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -326,8 +344,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					/usr/local/include/cairo,
+				);
 				INFOPLIST_FILE = CairoTestMac/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				LIBRARY_SEARCH_PATHS = /usr/local/lib/;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -337,8 +361,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					/usr/local/include/cairo,
+				);
 				INFOPLIST_FILE = CairoTestMac/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
+				LIBRARY_SEARCH_PATHS = /usr/local/lib/;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
